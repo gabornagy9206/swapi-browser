@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
   }
 
   searchSwapi(phrase) {
+    // tslint:disable-next-line: deprecation
     event.preventDefault();
     this.swapi.searchItem(phrase).subscribe(res => {
       console.log(res);
