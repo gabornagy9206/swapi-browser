@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="buttons">
+    <button class="btn btn-primary btn-lg" (click)="setListData('planets')">Planets</button>
+    <button class="btn btn-primary btn-lg" (click)="setListData('starships')">Starships</button>
+    <button class="btn btn-primary btn-lg" (click)="setListData('vehicles')">Vehicles</button>
+    <button class="btn btn-primary btn-lg" (click)="setListData('people')">People</button>
+    <button class="btn btn-primary btn-lg" (click)="setListData('films')">Films</button>
+    <button class="btn btn-primary btn-lg" (click)="setListData('species')">Species</button>
+  </div>
+  <div *ngIf="displayData">
+    <ul class="list-group" *ngFor="let item of displayData.results; let i = index">
+      <li class="list-group-item list-group-item-dark" *ngIf="category !== 'films'">
+        <a [routerLink]="['/item/', category, i + 1]">{{item.name}}
+        </a>
+      </li>
+      <li class="list-group-item list-group-item-dark" *ngIf="category === 'films'">
+        <a [routerLink]="['/item/', category, i + 1]">{{item.title}}
+        </a>
+      </li>
+    </ul>
+    <div class="buttons prev-next">
+      <button [disabled]="!displayData.previous" class="btn btn-secondary"
+        (click)="loadPage(displayData, 'previous')">Previous</button>
+      <button [disabled]="!displayData.next" class="btn btn-secondary" (click)="loadPage(displayData, 'next')">Next</button>
+    </div>
+  </div>
+</div>

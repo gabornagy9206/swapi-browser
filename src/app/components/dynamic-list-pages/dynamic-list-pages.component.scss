@@ -1,0 +1,35 @@
+.buttons {
+    display: flex;
+    margin: 20px auto;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+
+    @media (max-width: 800px) {
+        flex-wrap: wrap;
+
+        button {
+            font-size: 1rem;
+            margin: 4px;
+        }
+    }
+
+    @media (max-width: 350px) {
+        flex-direction: column;
+    }
+}
+
+.prev-next {
+    display: flex;
+    flex-direction: row;
+}
+
+.list-group {
+    margin: 0 auto;
+    max-width: 800px;
+
+    li {
+        margin: 4px 0;
+        line-height: 1;
+    }
+}
